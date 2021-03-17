@@ -1,0 +1,2 @@
+# AdivinhaONumero
+Exercício no GitHub
