@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,13 +31,7 @@ public class AdivinhaONumero : MonoBehaviour
         Debug.Log("Eu vou tentar adivinhar o número em que pensas");
         Debug.Log("Pensa num número entre" + minimo + " e " + maximo);
 
-        Debug.Log("Eu acho que o número em que pensaste é 100");
-
-        Debug.Log("Para responderes");
-        Debug.Log("Seta Cima - o número que pensaste é maior");
-        Debug.Log("Seta Baixo - o número em que pensaste é menor");
-        Debug.Log("Enter - o número em que pensaste é este!");
-
+        CalculaEImprime();
     }
 
     // Update is called once per frame
@@ -46,19 +41,37 @@ public class AdivinhaONumero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow)) //Sim - Se tiver pressionado; Não - caso contrário
         {
             minimo = valorAAdivinhar;
-            valorAAdivinhar = (minimo + maximo) / 2;
-            Debug.Log("Eu acho que o número em que pensaste é 100");
+            CalculaEImprime();
 
-            //Código a executar se o jogador pressionar a tecla para cima
+            //Código a executar se o jogador pressionar a tecla para cim
 
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             //Código a executar se o jogador pressionar a tecla para baixo
+
+            minimo = valorAAdivinhar;
+            CalculaEImprime();
+
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
             //Código a executar se o jogador pressionar o Enter
+            Debug.Log("Viste como sou um génio?!");
+
         }
     }
+
+    void CalculaEImprime()
+    {
+        valorAAdivinhar = (minimo + maximo) / 2;
+
+        Debug.Log("Eu acho que o número em que pensaste é " + valorAAdivinhar);
+
+        Debug.Log("Para responderes");
+        Debug.Log("Seta Cima - o número que pensaste é maior");
+        Debug.Log("Seta Baixo - o número em que pensaste é menor");
+        Debug.Log("Enter - o número em que pensaste é este!");
+    }
+
 }
