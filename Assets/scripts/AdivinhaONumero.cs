@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class AdivinhaONumero : MonoBehaviour
 {
+    [SerializeField] int minimoInicio = 1;
+    [SerializeField] int maximoInicio = 100;
 
     int minimo; //declaracao da variavel
     int maximo; //declaracao da variavel
@@ -13,25 +16,7 @@ public class AdivinhaONumero : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minimo = 1;   //este é o valor minimo do jogo
-        maximo = 100; //este é o valor minimo do jogo
-        valorAAdivinhar = (minimo + maximo) / 2;
-
-
-        /*
-         * Operadores matemáticos
-         * + Soma
-         * - Subtração
-         * * Multiplicação
-         * / Divisao
-         * % Resto da divisão inteira
-         */
-
-        Debug.Log("Olá, vamos jogar um jogo!");
-        Debug.Log("Eu vou tentar adivinhar o número em que pensas");
-        Debug.Log("Pensa num número entre" + minimo + " e " + maximo);
-
-        CalculaEImprime();
+        InicioOJogo();
     }
 
     // Update is called once per frame
@@ -59,12 +44,15 @@ public class AdivinhaONumero : MonoBehaviour
             //Código a executar se o jogador pressionar o Enter
             Debug.Log("Viste como sou um génio?!");
 
+            InicioOJogo();
+
         }
     }
 
     void CalculaEImprime()
     {
-        valorAAdivinhar = (minimo + maximo) / 2;
+        valorAAdivinhar = UnityEngine.Random.Range(minimo, maximo);
+
 
         Debug.Log("Eu acho que o número em que pensaste é " + valorAAdivinhar);
 
@@ -74,4 +62,25 @@ public class AdivinhaONumero : MonoBehaviour
         Debug.Log("Enter - o número em que pensaste é este!");
     }
 
+    void InicioOJogo()
+    {
+        minimo = minimoInicio;   //este é o valor minimo do jogo
+        maximo = maximoInicio; //este é o valor minimo do jogo
+
+
+        /*
+         * Operadores matemáticos
+         * + Soma
+         * - Subtração
+         * * Multiplicação
+         * / Divisao
+         * % Resto da divisão inteira
+         */
+
+        Debug.Log("Olá, vamos jogar um jogo!");
+        Debug.Log("Eu vou tentar adivinhar o número em que pensas");
+        Debug.Log("Pensa num número entre" + minimo + " e " + maximo);
+
+        CalculaEImprime();
+    }
 }
