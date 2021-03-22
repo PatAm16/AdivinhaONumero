@@ -9,9 +9,12 @@ public class AdivinhaONumero : MonoBehaviour
     [SerializeField] int minimoInicio = 1;
     [SerializeField] int maximoInicio = 100;
 
+
     int minimo; //declaracao da variavel
     int maximo; //declaracao da variavel
     int valorAAdivinhar;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +28,13 @@ public class AdivinhaONumero : MonoBehaviour
         //O JOGADOR CARREGOU EM ALGUMA TECLA?
         if (Input.GetKeyDown(KeyCode.UpArrow)) //Sim - Se tiver pressionado; Não - caso contrário
         {
+
+            //Código a executar se o jogador pressionar a tecla para cima
+
             minimo = valorAAdivinhar;
             CalculaEImprime();
 
-            //Código a executar se o jogador pressionar a tecla para cim
-
+           
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -48,6 +53,7 @@ public class AdivinhaONumero : MonoBehaviour
 
         }
     }
+
 
     void CalculaEImprime()
     {
