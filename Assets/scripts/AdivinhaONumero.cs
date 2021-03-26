@@ -1,8 +1,7 @@
-﻿using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = System.Random;
 
 public class AdivinhaONumero : MonoBehaviour
 {
@@ -22,6 +21,7 @@ public class AdivinhaONumero : MonoBehaviour
         InicioOJogo();
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -40,7 +40,7 @@ public class AdivinhaONumero : MonoBehaviour
         {
             //Código a executar se o jogador pressionar a tecla para baixo
 
-            minimo = valorAAdivinhar;
+            maximo = valorAAdivinhar;
             CalculaEImprime();
 
         }
@@ -57,7 +57,7 @@ public class AdivinhaONumero : MonoBehaviour
 
     void CalculaEImprime()
     {
-        valorAAdivinhar = UnityEngine.Random.Range(minimo, maximo);
+        valorAAdivinhar = Random.Range(minimo, maximo);
 
 
         Debug.Log("Eu acho que o número em que pensaste é " + valorAAdivinhar);
